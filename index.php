@@ -56,8 +56,9 @@
 			<tbody>\n";
 			var tbl_row = "";
 			for (var i = 0; i < json["list"].length; i++) {
+				var date = new Date(json["list"][i]["dt"]*1000);
 				tbl_row += "<tr>\n";
-				tbl_row += "<td>"+(new Date(json["list"][i]["dt"]))+"</td>\n";
+				tbl_row += "<td>"+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+"</td>\n";
 				tbl_row += "<td>"+(json["list"][i]["temp"]["day"]).toFixed(2)+"C</td>\n";
 				tbl_row += "<td>"+(json["list"][i]["temp"]["max"] - json["list"][i]["temp"]["min"]).toFixed(2)+"C</td>\n";
 				tbl_row += "</tr>\n";
